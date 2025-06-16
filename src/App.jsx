@@ -5,8 +5,6 @@ import { Suspense, lazy } from 'react';
 
 const Services = lazy(() => import('./pages/Services'));
 const Blogs = lazy(() => import('./pages/Blogs'));
-const CaseStudies = lazy(() => import('./pages/CaseStudies'));
-const AboutUs = lazy(() => import('./pages/AboutUs'));
 
 function App() {
   return (
@@ -20,8 +18,6 @@ function App() {
               <Route path="/" element={<Services />} />
               <Route path="/services" element={<Services />} />
               <Route path="/blogs" element={<Blogs />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="*" element={<div className="text-center py-10">404 - Page Not Found</div>} />
             </Routes>
           </Suspense>

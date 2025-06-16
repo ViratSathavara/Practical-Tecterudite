@@ -4,11 +4,11 @@ import Pagination from '../components/Pagination';
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState({ data: [], total: 0 });
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [postsPerPage] = useState(6);
   const [loading, setLoading] = useState(false);
 
-  const getBlogs = async (page = 1) => {
+  const getBlogs = async (page = 0) => {
     setLoading(true);
     try {
       const response = await axios.get(`http://3.7.81.243:3253/api/blog?page=${page}&limit=${postsPerPage}`);

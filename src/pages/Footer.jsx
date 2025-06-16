@@ -13,14 +13,10 @@ export default function Footer() {
 
         <div className="hidden md:block w-px bg-gray-400 h-24 mx-4"></div>
 
-        <div className="flex flex-col sm:flex-row gap-10">
+        <div className="flex flex-row gap-0 sm:gap-40">
           <div>
             <h4 className="font-semibold mb-2">Address</h4>
-            <p className="text-gray-600">
-              101 Office No,<br />
-              Road name,<br />
-              India
-            </p>
+            <p className="text-gray-600">101 Office No, Road name, India</p>
           </div>
           <div>
             <h4 className="font-semibold mb-2">Contacts</h4>
@@ -34,40 +30,40 @@ export default function Footer() {
         <img src="/src/assets/Bitmaplogo.png" alt="Logo" className="h160 mb-4 md:mb-0" />
 
         <div className="flex gap-6 mb-4 md:mb-0">
-          <ul className="flex space-x-8 gap-3 pr-4 items-center">
-          <li>
-            <Link
-              to="/services?section=about"
-              className="hover:text-blue-600 transition-colors font-medium"
-            >
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/blogs" 
-              className="hover:text-blue-600 transition-colors font-medium"
-            >
-              Blogs
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/services?section=contact" 
-              className="hover:text-blue-600 transition-colors font-medium"
-            >
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/services?section=services" 
-              className="hover:text-blue-600 transition-colors font-medium"
-            >
-              Services
-            </Link>
-          </li>
-        </ul>
+          <ul className="flex space-x-8 gap-1 sm:gap-3 pr-4 items-center">
+            <li>
+              <Link
+                to="/services?section=about"
+                className="hover:text-blue-600 transition-colors font-medium"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blogs"
+                className="hover:text-blue-600 transition-colors font-medium"
+              >
+                Blogs
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/services?section=contact"
+                className="hover:text-blue-600 transition-colors font-medium"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/services?section=services"
+                className="hover:text-blue-600 transition-colors font-medium"
+              >
+                Services
+              </Link>
+            </li>
+          </ul>
         </div>
 
         <p className="text-gray-600">© 2022. All rights reserved</p>

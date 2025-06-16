@@ -10,9 +10,9 @@ const AboutUs = () => {
         <p className="text-[#606060] text-base sm:text-lg leading-relaxed">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. Lorem ipsum dolor sit amet consetetur sadipscing elitr.
         </p>
-        <Link to="/about" className="w-40">
+        <Link to="/services?section=contact" className="w-40">
           <button className="bg-[#FF6400] font-bold text-white px-6 py-2 rounded-full w-full transition hover:bg-orange-600">
-            Checkout
+            Contact US
           </button>
         </Link>
       </div>

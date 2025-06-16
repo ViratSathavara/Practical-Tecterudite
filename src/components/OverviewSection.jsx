@@ -42,15 +42,15 @@ const services = [
 const OverviewSection = () => {
   return (
     <section className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 py-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-black text-center mb-12">
-        Our Services
+      <h2 className="text-3xl md:text-4xl font-bold text-black mb-12">
+        Services
       </h2>
 
       <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
           <div
             key={service.id}
-            className="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col items-center text-center"
+            className="rounded-xl bg-white hover:shadow-xl transition duration-300 p-6 flex flex-col items-center text-center"
           >
             <img
               src={service.image}

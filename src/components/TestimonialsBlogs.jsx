@@ -20,12 +20,11 @@ const testimonials = [
 
 const TestimonialsBlogs = () => {
   const [blogs, setBlogs] = useState([]);
-  console.log(blogs)
   const navigate = useNavigate();
 
   const getBlogs = async () => {
     try {
-      const response = await axios.get('http://3.7.81.243:3253/api/blog/');
+      const response = await axios.get('http://3.7.81.243:3253/api/blog?page=0');
       setBlogs(response.data);
     } catch (error) {
       console.error('Error fetching blogs:', error);
@@ -36,15 +35,15 @@ const TestimonialsBlogs = () => {
     getBlogs();
   }, []);
 
-  return (
-    <div className="text-black flex flex-col items-center w-full px-6 py-10">
-      <div className="w-9/12">
-        <h1 className="text-4xl font-semibold my-20">Testimonials</h1>
-        <div className="flex justify-evenly w-full gap-10">
+  return  (
+    <div className="text-black flex flex-col justify-center items-center w-full  py-10">
+      <div className="w-full max-w-7xl">
+        <h1 className="text-3xl md:text-4xl font-semibold mb-10 md:my-20">Testimonials</h1>
+        <div className="flex flex-col md:flex-row justify-center gap-10">
           {testimonials.map(({ id, name, image, text }) => (
             <div
               key={id}
-              className="bg-white py-8 px-6 rounded-lg shadow-xl max-w-2xl flex flex-col gap-4 relative"
+              className="bg-white py-8 px-6 rounded-lg shadow-xl max-w-2xl w-full flex flex-col gap-4 relative"
             >
               <img
                 src="/src/assets/up-quote-icon.png"
@@ -52,10 +51,10 @@ const TestimonialsBlogs = () => {
                 className="absolute -top-4 left-6 w-8 h-8"
               />
               <div className="flex items-center gap-5">
-                <img src={image} alt={name} className="w-20 h-20 rounded-full" />
-                <h1 className="text-xl font-semibold">{name}</h1>
+                <img src={image} alt={name} className="w-16 h-16 md:w-20 md:h-20 rounded-full" />
+                <h1 className="text-lg md:text-xl font-semibold">{name}</h1>
               </div>
-              <p className="text-gray-700">{text}</p>
+              <p className="text-gray-700 text-sm md:text-base">{text}</p>
               <img
                 src="/src/assets/down-quote-icon.png"
                 alt="downquote"
@@ -66,11 +65,11 @@ const TestimonialsBlogs = () => {
         </div>
       </div>
 
-      <div className="w-9/12 mt-30">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-semibold">Blogs</h1>
+      <div className="w-full max-w-7xl mt-20 md:mt-60">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+          <h1 className="text-3xl md:text-4xl font-semibold">Blogs</h1>
           <p
-            className="text-blue-600 flex items-center gap-1 cursor-pointer hover:underline"
+            className="text-blue-600 flex items-center gap-1 cursor-pointer hover:underline text-base md:text-lg"
             onClick={() => navigate('/blogs')}
           >
             View All <ArrowRightAltIcon />
@@ -79,25 +78,24 @@ const TestimonialsBlogs = () => {
 
         <div>
           {blogs.data?.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogs.data.slice(0, 3).map((blog) => (
                 <div
                   key={blog.id}
-                  className=" p-6 rounded-lg hover:shadow-xl transition-shadow"
+                  className="bg-white p-6 rounded-lg hover:shadow-xl transition-shadow"
                 >
                   <img
                     src={blog.image_url}
                     alt={blog.title}
-                    className="w-xl h-48 object-cover rounded-md mb-4"
+                    className="w-full h-48 object-cover rounded-md mb-4"
                   />
-                  <h2 className="text-xl font-semibold mb-2">{blog.seo_title}</h2>
-                  <p className="text-gray-600 mb-4">{blog.seo_description}</p>
-                  
+                  <h2 className="text-lg md:text-xl font-semibold mb-2">{blog.seo_title}</h2>
+                  <p className="text-gray-600 text-sm md:text-base">{blog.seo_description}</p>
                 </div>
               ))}
             </div>
           ) : (
-            <p>Loading blogs...</p>
+            <p className="text-center text-gray-500">Loading blogs...</p>
           )}
         </div>
       </div>

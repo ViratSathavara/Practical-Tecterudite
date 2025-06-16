@@ -24,7 +24,7 @@ const steps = [
 const OurProgress = () => {
   return (
     <section className="text-black py-12 px-4 sm:px-6 lg:px-20 max-w-7xl mx-auto">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Our Process</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold mb-12">Our Process</h2>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-y-12 md:gap-x-10">
         {steps.map(step => (

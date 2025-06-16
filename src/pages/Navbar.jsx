@@ -1,12 +1,33 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isTransparent, setIsTransparent] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (location.pathname === '/services') {
+        setIsTransparent(scrollY < window.innerHeight * 0.9);
+      } else {
+        setIsTransparent(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [location]);
 
   return (
-    <header className="bg-transparent text-black shadow-md fixed w-full z-50">
+    <header className={`fixed w-full z-50 transition-colors duration-300 ${isTransparent ? 'bg-transparent text-black shadow-md' : 'bg-white text-black shadow-md'}`}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-20 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img

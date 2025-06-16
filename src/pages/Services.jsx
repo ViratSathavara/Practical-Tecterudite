@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-
 import OverviewSection from '../components/OverviewSection';
 import AboutUs from '../components/AboutUs';
 import OurProgress from '../components/OurProgress';
@@ -16,6 +15,7 @@ const Services = () => {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
+    //URLSearchParams is a built-in JavaScript object that helps you parse query strings easily.
     const section = queryParams.get('section');
 
     if (section === 'about' && aboutRef.current) {
@@ -40,7 +40,7 @@ const Services = () => {
           />
         </div>
 
-        <div className="absolute inset-0 flex items-center justify-start z-10 mt-60 px-6 sm:ml-30">
+        <div className="absolute inset-0 flex items-center justify-start z-10 mt-24 px-6 lg:ml-30">
           <div className="max-w-3xl  bg-opacity-80 p-6 rounded-lg text-black">
             <h1 className="text-3xl sm:text-4xl font-bold uppercase mb-4 max-w-80">
               How much could you save?
@@ -76,7 +76,7 @@ const Services = () => {
         <img
           src="/src/assets/Design-elements.png"
           alt="Design Element"
-          className="absolute w-40 sm:w-52 md:w-64 lg:w-72 left-1/2 -translate-x-1/2 top-10 sm:top-20 rotate-0 sm:rotate-90 opacity-60 z-[-10]"
+          className="absolute hidden lg:flex -right-33 rotate-270 z-[-10]"
         />
         <div className="absolute inset-0 bg-white bg-opacity-40 z-[-15]"></div>
         <div className="w-full h-full relative z-10">
@@ -103,7 +103,7 @@ const Services = () => {
         <img
           src="/src/assets/Design-elements.png"
           alt="Design"
-          className="absolute w-40 sm:w-52 md:w-64 lg:w-72 top-6 left-1/2 -translate-x-1/2 rotate-0 sm:rotate-90 opacity-50 z-[-10]"
+          className="absolute hidden h-auto lg:flex -left-33 rotate-90 z-[-13]"
         />
         <div className="absolute inset-0 bg-white bg-opacity-40 z-[-15]"></div>
         <div className="w-full h-full relative z-10">
@@ -111,12 +111,12 @@ const Services = () => {
         </div>
       </section>
 
-      <section id="TestimonialsBlogs" className="relative flex items-center justify-center text-white px-4" style={{ height: '220vh' }}>
+      <section id="TestimonialsBlogs" className="relative flex items-center justify-center text-white" style={{ minHeight: '200vh' }}>
         <div className="absolute inset-0 -z-10 flex items-center justify-center">
           <img src="/src/assets/TestimonialsBlogs.png" alt="Background Design" className="absolute inset-0 w-full h-full object-cover z-[-10]" />
         </div>
         <div className="absolute inset-0 bg-white bg-opacity-40 -z-15"></div>
-        <div className="w-full h-full bg-opacity-70 rounded-lg relative z-10">
+        <div className="w-full h-full bg-opacity-70 rounded-lg relative z-10 p-3">
           <TestimonialsBlogs />
         </div>
       </section>
