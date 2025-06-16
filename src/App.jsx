@@ -1,26 +1,32 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './pages/Navbar';
 import Footer from './pages/Footer';
-import Services from './pages/Services';
-import Blogs from './pages/Blogs';
-import CaseStudies from './pages/CaseStudies';
-import AboutUs from './pages/AboutUs';
-import Home from './pages/Home';
+import { Suspense, lazy } from 'react';
+
+const Services = lazy(() => import('./pages/Services'));
+const Blogs = lazy(() => import('./pages/Blogs'));
+const CaseStudies = lazy(() => import('./pages/CaseStudies'));
+const AboutUs = lazy(() => import('./pages/AboutUs'));
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="flex flex-col min-h-screen text-black">
         <Navbar />
-        <main className="flex-grow container mx-auto px-4 py-8">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-          </Routes>
+
+        <main className="flex-grow pt-20">
+          <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Services />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="*" element={<div className="text-center py-10">404 - Page Not Found</div>} />
+            </Routes>
+          </Suspense>
         </main>
+
         <Footer />
       </div>
     </Router>
